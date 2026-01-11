@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #1E3A8A; /*blue-900*/
+    --color-primary-foreground: #FFFFFF; /*white*/
+    
+    /* Secondary Colors */
+    --color-secondary: #3B82F6; /*blue-500*/
+    --color-secondary-foreground: #FFFFFF; /*white*/
+    
+    /* Accent Colors */
+    --color-accent: #F97316; /*orange-500*/
+    --color-accent-foreground: #FFFFFF; /*white*/
+    
+    /* Background Colors */
+    --color-background: #FAFBFC; /*gray-50*/
+    --color-foreground: #1E293B; /*slate-800*/
+    
+    /* Surface Colors */
+    --color-card: #F1F5F9; /*slate-100*/
+    --color-card-foreground: #1E293B; /*slate-800*/
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /*white*/
+    --color-popover-foreground: #1E293B; /*slate-800*/
+    
+    /* Muted Colors */
+    --color-muted: #F1F5F9; /*slate-100*/
+    --color-muted-foreground: #64748B; /*slate-500*/
+    
+    /* Border & Input */
+    --color-border: #E2E8F0; /*slate-200*/
+    --color-input: #E2E8F0; /*slate-200*/
+    --color-ring: #3B82F6; /*blue-500*/
+    
+    /* State Colors */
+    --color-success: #059669; /*emerald-600*/
+    --color-success-foreground: #FFFFFF; /*white*/
+    
+    --color-warning: #D97706; /*amber-600*/
+    --color-warning-foreground: #FFFFFF; /*white*/
+    
+    --color-error: #DC2626; /*red-600*/
+    --color-error-foreground: #FFFFFF; /*white*/
+    
+    --color-destructive: #DC2626; /*red-600*/
+    --color-destructive-foreground: #FFFFFF; /*white*/
+    
+    /* Brand Colors */
+    --color-brand-coral: #ff6b6b; /*coral*/
+    --color-brand-teal: #4ecdc4; /*teal*/
+    --color-brand-amber: #ffa726; /*amber*/
+    --color-brand-navy: #2c3e50; /*navy*/
+    --color-brand-crimson: #e53e3e; /*crimson*/
+    
+    /* Typography */
+    --font-headline: 'Inter', sans-serif;
+    --font-body: 'Source Sans 3', sans-serif;
+    --font-cta: 'Manrope', sans-serif;
+    --font-accent: 'JetBrains Mono', monospace;
+    
+    /* Spacing */
+    --spacing-base: 8px;
+    
+    /* Border Radius */
+    --radius: 8px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulseSubtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .shadow-subtle {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+  
+  .shadow-elevated {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  .scale-102 {
+    transform: scale(1.02);
+  }
+  
+  .slider-thumb::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+  
+  .slider-thumb::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .slider-thumb::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+  
+  .slider-thumb::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
